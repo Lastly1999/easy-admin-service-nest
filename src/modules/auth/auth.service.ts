@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
-import { FindUserDto } from "./dtos/find-user.dto"
+import { ExistUserDto } from "./dtos/find-user.dto"
 import { ToolsService } from "../../common/tools/tools.service"
 import { UserService } from "../user/user.service"
 import { JwtService } from "@nestjs/jwt"
@@ -15,7 +15,7 @@ export class AuthService {
      * 鉴权登录
      * @param findUserDto
      */
-    async authLogin(findUserDto: FindUserDto) {
+    async authLogin(findUserDto: ExistUserDto) {
         const verifyResult = await this.toolsService.verifySvgCode(this.keyPrefix, findUserDto.captchaId, findUserDto.captchaCode)
         if (!verifyResult) {
             throw new HttpException("验证码错误，请重试", HttpStatus.INTERNAL_SERVER_ERROR)

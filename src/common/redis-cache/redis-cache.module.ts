@@ -16,4 +16,4 @@ import * as redisStore from "cache-manager-redis-store"
     providers: [RedisCacheService],
     exports: [RedisCacheService],
 })
-export class RedisCacheModule { }
+export class RedisCacheModule {}

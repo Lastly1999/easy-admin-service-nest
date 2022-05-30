@@ -1,7 +1,7 @@
 import { Controller, Post, Get, Patch, Body } from "@nestjs/common"
 import { ApiBody, ApiOperation, ApiTags } from "@nestjs/swagger"
 import { AuthService } from "./auth.service"
-import { FindUserDto } from "./dtos/find-user.dto"
+import { ExistUserDto } from "./dtos/find-user.dto"
 
 @Controller("auth")
 @ApiTags("系统权限")
@@ -10,9 +10,9 @@ export class AuthController {
 
     @Post("/login")
     @ApiOperation({ summary: "鉴权登录" })
-    @ApiBody({ type: FindUserDto })
-    async authLogin(@Body() findUserDto: FindUserDto) {
-        return await this.authService.authLogin(findUserDto)
+    @ApiBody({ type: ExistUserDto, description: "输入用户名和密码" })
+    async authLogin(@Body() existUserDto: ExistUserDto) {
+        return await this.authService.authLogin(existUserDto)
     }
 
     @Get("/code")

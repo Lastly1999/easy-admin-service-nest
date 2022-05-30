@@ -9,7 +9,7 @@ import { CreateMenuDto } from "./dtos/create-menu.dto"
 @UseGuards(AuthGuard("jwt"))
 @Controller("menu")
 export class BaseMenuController {
-    constructor(private readonly baseMenuService: BaseMenuService) { }
+    constructor(private readonly baseMenuService: BaseMenuService) {}
 
     @Get("role")
     @ApiOperation({ summary: "获取用户系统菜单" })

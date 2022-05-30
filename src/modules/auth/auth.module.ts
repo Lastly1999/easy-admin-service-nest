@@ -24,4 +24,4 @@ import { jwtConstants } from "./constants"
         }),
     ],
 })
-export class AuthModule { }
+export class AuthModule {}
